@@ -13,3 +13,4 @@ vectorstore/qwen_corpus_hash.txt
 # IDE
 .vscode/
 .idea/
+venv/
