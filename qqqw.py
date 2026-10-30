@@ -42,3 +42,8 @@ def train():
 #补充transformer的代码
 def test():
     pass
+
+
+#输出一个简单的transformer模型
+def output_transformer():
+    pass
