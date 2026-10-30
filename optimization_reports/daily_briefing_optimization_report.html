@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技能优化对比报告 - daily_briefing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+            background: #f0f2f5; color: #1e293b; padding: 24px; line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 24px; margin-bottom: 8px; }
+        .subtitle { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+
+        .summary-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;
+        }
+        .summary-card {
+            background: white; border-radius: 12px; padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .summary-card .label { font-size: 12px; color: #94a3b8; margin-bottom: 4px; }
+        .summary-card .value { font-size: 28px; font-weight: bold; }
+        .summary-card .change { font-size: 13px; margin-top: 4px; }
+        .green { color: #059669; }
+        .red { color: #dc2626; }
+
+        .section-title {
+            font-size: 18px; font-weight: bold; margin: 32px 0 16px;
+            padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+        }
+
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        th { background: #1e293b; color: white; padding: 12px 16px; text-align: left; font-size: 13px; }
+        td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+        .num { text-align: right; font-family: 'Courier New', monospace; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f8fafc; }
+
+        .badge { padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+        .badge.pass { background: #d1fae5; color: #065f46; }
+        .badge.fail { background: #fee2e2; color: #991b1b; }
+        tr.pass { background: #f0fdf4; }
+        tr.fail { background: #fef2f2; }
+
+        .code-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+        .code-block {
+            background: #1e293b; color: #e2e8f0; border-radius: 8px;
+            padding: 16px; font-family: 'Courier New', monospace; font-size: 12px;
+            white-space: pre-wrap; word-break: break-all; max-height: 500px; overflow-y: auto;
+        }
+        .code-label { font-size: 13px; font-weight: bold; margin-bottom: 8px; color: #64748b; }
+
+        .timestamp { text-align: center; color: #94a3b8; font-size: 12px; margin-top: 32px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>技能优化对比报告</h1>
+    <p class="subtitle">技能名称: daily_briefing | 优化维度: Token 消耗 + 执行效率 | 生成时间: 2026-08-05 18:59:09</p>
+
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="label">Token 估算（优化前）</div>
+            <div class="value">3,828</div>
+            <div class="change">基线值</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Token 估算（优化后）</div>
+            <div class="value green">857</div>
+            <div class="change green">节省 77.6%</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Token 节省量</div>
+            <div class="value green">2,971</div>
+            <div class="change green">每轮对话节省的 token</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">字符总数缩减</div>
+            <div class="value">75.2%</div>
+            <div class="change">4,821 → 1,198</div>
+        </div>
+    </div>
+
+    <div class="section-title">详细指标对比</div>
+    <table>
+        <thead>
+            <tr>
+                <th>指标</th>
+                <th style="text-align:right">优化前</th>
+                <th style="text-align:right">优化后</th>
+                <th style="text-align:right">减少量</th>
+                <th style="text-align:right">降幅</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>总字符数</td>
+            <td class="num">4,821</td>
+            <td class="num">1,198</td>
+            <td class="num">3,623</td>
+            <td class="num" style="color:#059669;font-weight:bold">75.2%</td>
+        </tr>
+        <tr>
+            <td>有效字符数</td>
+            <td class="num">4,390</td>
+            <td class="num">1,044</td>
+            <td class="num">3,346</td>
+            <td class="num" style="color:#059669;font-weight:bold">76.2%</td>
+        </tr>
+        <tr>
+            <td>总行数</td>
+            <td class="num">227</td>
+            <td class="num">68</td>
+            <td class="num">159</td>
+            <td class="num" style="color:#059669;font-weight:bold">70.0%</td>
+        </tr>
+        <tr>
+            <td>非空行数</td>
+            <td class="num">151</td>
+            <td class="num">55</td>
+            <td class="num">96</td>
+            <td class="num" style="color:#059669;font-weight:bold">63.6%</td>
+        </tr>
+        <tr>
+            <td>标题数</td>
+            <td class="num">24</td>
+            <td class="num">10</td>
+            <td class="num">14</td>
+            <td class="num" style="color:#059669;font-weight:bold">58.3%</td>
+        </tr>
+        <tr>
+            <td>代码块数</td>
+            <td class="num">3</td>
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num" style="color:#059669;font-weight:bold">66.7%</td>
+        </tr>
+        <tr>
+            <td>JSON示例数</td>
+            <td class="num">18</td>
+            <td class="num">4</td>
+            <td class="num">14</td>
+            <td class="num" style="color:#059669;font-weight:bold">77.8%</td>
+        </tr>
+        <tr>
+            <td>列表项数</td>
+            <td class="num">8</td>
+            <td class="num">7</td>
+            <td class="num">1</td>
+            <td class="num" style="color:#059669;font-weight:bold">12.5%</td>
+        </tr>
+        <tr>
+            <td>Token估算</td>
+            <td class="num">3,828</td>
+            <td class="num">857</td>
+            <td class="num">2,971</td>
+            <td class="num" style="color:#059669;font-weight:bold">77.6%</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">关键信息保留检查</div>
+    <table>
+        <thead>
+            <tr>
+                <th>状态</th>
+                <th>检查项</th>
+                <th>优化前</th>
+                <th>优化后</th>
+                <th>缺失内容</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="pass">
+            <td><span class="badge pass">通过</span></td>
+            <td>技能名称 (name)</td>
+            <td>daily_briefing</td>
+            <td>daily_briefing</td>
+            <td></td>
+        </tr>
+        <tr class="pass">
+            <td><span class="badge pass">通过</span></td>
+            <td>所需工具 (required_tools)</td>
+            <td>weather, stock_quote</td>
+            <td>weather, stock_quote</td>
+            <td></td>
+        </tr>
+        <tr class="pass">
+            <td><span class="badge pass">通过</span></td>
+            <td>stock 参数调用格式</td>
+            <td>包含 6 个示例</td>
+            <td>包含 2 个示例</td>
+            <td></td>
+        </tr>
+        <tr class="pass">
+            <td><span class="badge pass">通过</span></td>
+            <td>city 参数调用格式</td>
+            <td>包含 6 个示例</td>
+            <td>包含 2 个示例</td>
+            <td></td>
+        </tr>
+        <tr class="pass">
+            <td><span class="badge pass">通过</span></td>
+            <td>核心规则保留</td>
+            <td>兜底处理, 免责声明, 投资参考, 出行建议</td>
+            <td>兜底处理, 免责声明, 投资参考, 出行建议</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">技能文件内容对比（前 3000 字符）</div>
+    <div class="code-compare">
+        <div>
+            <div class="code-label">优化前（4,821 字符）</div>
+            <div class="code-block">---
+name: daily_briefing
+description: 每日简报：综合天气查询和股票行情，为用户提供每日出行和投资参考的综合性简报服务
+keywords: 简报,日报,每日,今天,今天天气,今天股市,出行,投资参考,每日简报,综合简报,晨报,早报,今日概览,天气股票,每日概要,日常总结,每日报告,每日资讯,每日信息,每日概况,每日总结,日常简报,今日简报,今日总结,今日报告
+required_tools: weather, stock_quote
+---
+
+# 每日简报技能 · 工作流
+
+## 技能简介与概述
+
+本技能是一个综合性的每日简报生成技能，它的主要目的是为用户提供一个包含天气信息和股票行情信息的综合性每日简报服务。当用户想要了解当天的天气情况和股票市场行情时，本技能可以同时调用天气查询工具和股票行情查询工具，将获取到的信息整合为一份结构清晰的每日简报，帮助用户快速了解当天的出行建议和投资参考信息。
+
+本技能的核心价值在于能够一次性为用户提供多维度的每日信息汇总，避免用户分别询问天气和股票行情，节省用户的时间和沟通成本，提升用户体验。
+
+## 适用场景
+
+本技能适用于以下场景：
+
+### 场景一：用户想要获取每日简报
+当用户说"给我一个每日简报"、"今天的简报"、"今日概览"、"每日简报"等类似的话语时，说明用户希望获取一份包含天气和股票信息的综合简报。此时应该激活本技能，为用户生成一份完整的每日简报。
+
+### 场景二：用户想要同时了解天气和股票
+当用户说"今天天气怎么样？股市如何？"、"帮我看看今天的天气和股票"、"今天出行和投资需要注意什么"等类似的话语时，说明用户同时关心天气和股票两个方面的信息。此时也应该激活本技能，为用户提供综合性的简报服务。
+
+### 场景三：用户想要获取晨报或早报
+当用户说"今天的晨报"、"给我看看早报"、"今日要闻概览"等类似的话语时，虽然用户可能没有明确提到天气和股票，但是本技能的定位就是提供综合性的每日简报，因此也应该激活本技能。
+
+### 场景四：用户想要了解每日概况
+当用户说"今天有什么需要注意的"、"每日概况"、"今日概要"等类似的话语时，这些表述虽然比较模糊，但本质上也是希望获取一个每日的综合信息简报，因此也应该激活本技能。
+
+## 工作流程（详细步骤）
+
+### 第一步：识别用户意图并提取关键信息
+
+首先需要识别用户的意图，判断用户是否希望获取每日简报。如果用户的话语中包含了"简报"、"日报"、"每日"、"晨报"、"早报"等关键词，则可以确定用户希望获取每日简报。
+
+接下来需要从用户的话语中提取以下关键信息：
+
+1. **城市信息**：用户可能指定了某个城市，如"北京今天的简报"、"上海的每日简报"等。如果用户指定了城市，则查询该城市的天气；如果用户未指定城市，则需要主动询问用户想查询哪个城市的天气。
+
+2. **股票信息**：用户可能指定了某只股票，如"贵州茅台的每日简报"、"帮我看看比亚迪今天的行情"等。如果用户指定了股票，则查询该股票的行情；如果用户未指定股票，则需要主动询问用户想查询哪只股票的行情。
+
+3. **时间信息**：用户可能指定了时间范围，但大多数情况下用户询问的是"今天"的简报，因此默认查询当天的天气和最近的股票行情。
+
+### 第二步：调用天气查询工具获取天气信息
+
+在确定了用户要查询的城市之后，需要调用 `weather` 工具来获取该城市的实时天气信息。
+
+调用方式如下：
+```json
+{"city": "北京"}
+```
+
+天气工具会返回该城市的实时天气信息，包括天气状况、温度、湿度、风速等。这些信息将用于后续的简报生成。
+
+### 第三步：调用股票行情查询工具获取股票信息
+
+在确定了用户要查询的股票之后，需要调用 `stock_quote` 工具来获取该股票的行情信息。
+
+调用方式如下：
+```json
+{"stock": "贵州茅台", "period": "daily"}
+```
+
+股票行情工具会返回该股票的最近行情信息，包括价格走势、涨跌幅、技术指标等。这些信息将用于后续的简报生成。
+
+### 第四步：整合信息生成每日简报
+
+在获取到天气信息和股票行情信息之后，需要将这些信息整合为一份结构清晰的每日简报。简报的格式建议如下：
+
+```
+【每日简报】
+日期：2026年8月5日
+
+一、天气概况
+城市：北京
+天气：晴
+温度：32.5°C
+湿度：45%
+风速：12 km/h
+出行建议：天气晴朗，注意防晒，适合出行。
+
+二、股市行情
+股票：贵州茅台（600519.SH）
+最新价格：XXXX元
+涨跌幅：X.XX%
+技术面分析：XXXX
+投资建议：XXXX
+
+三、今日总结
+综合天气和股市信息，给出今日的出行和投资建议。
+```
+
+### 第五步：兜底处理
+
+如果在执行过程中出现以下情况，需要进行兜底处理：
+
+1. **用户未指定城市**：主动询问用户想查询哪个城市的天气，例如"请问您想查询哪个城市的天气？"
+2. **用户未指定股票**：主动询问用户想查询哪只股票的行情，例如"请问您想查询哪只股票的行情？"
+3. **天气查询失败**：告知用户天气查询暂时不可用，建议稍后重试。
+4. **股票查询失败**：告知用户股票查询暂时不可用，建议稍后重试或更换股票。
+5. **用户未指定城市且未指定股票**：同时询问用户城市和股票信息。
+
+## 工具选择指南（重要！）
+
+本技能有两个工具可以使用，根据用户的需求选择：
+
+### 工具一：weather（天气查询）
+- **用途**：查询指定城市的实时天气信息
+- **输入参数**：`{"city": "城市名称"}`
+- **使用场景**：当需要获取天气信息时使用
+- **示例**：
+  - `{"city": "北京"}` → 查询北京的天气
+  - `{"city": "上海"}` → 查询上海的天气
+  - `{"city": "深圳"}` → 查询深圳的天气
+  - `{"city": "广州"}` → 查询广州的天气
+  - `{"city": "杭州"}` → 查询杭州的天气
+
+### 工具二：stock_quote（股票行情查询）
+- **用途**：查询指定股票的K线行情数据
+- **输入参数**：`{"stock": "股票名称", "period": "时间粒度"}`
+- **使用场景**：当需要获取股票行情信息时使用
+- **示例**：
+  - `{"stock": "贵州茅台", "period": "daily"}` → 查询贵州茅台的日线行情
+  - `{"stock": "比亚迪", "period": "daily"}` → 查询比亚迪的日线行情
+  - `{"stock": "宁德时代", "period": "daily"}` → 查询宁德时代的日线行情
+  - `{"stock": "海康威视", "period": "daily"}` → 查询海康威视的日线行情
+  - `{"stock": "中国平安", "period": "daily"}` → 查询中国平安的日线行情
+
+### 工具调用顺序
+在本技能中，</div>
+        </div>
+        <div>
+            <div class="code-label">优化后（1,198 字符）</div>
+            <div class="code-block">---
+name: daily_briefing
+description: 每日简报：综合天气查询和股票行情，为用户提供每日出行和投资参考的综合性简报服务
+keywords: 简报,日报,每日,今天,今天天气,今天股市,出行,投资参考,每日简报,综合简报,晨报,早报,今日概览,天气股票,每日概要,日常总结,每日报告,每日资讯,每日信息,每日概况,每日总结,日常简报,今日简报,今日总结,今日报告
+required_tools: weather, stock_quote
+---
+
+# 每日简报技能 · 工作流
+
+## 触发条件
+用户表达获取每日综合信息意图时激活，包括：简报/日报/晨报/早报/今日概览/每日概况，或同时提及天气和股票。
+
+## 工作流程
+
+### 1. 提取关键信息
+- **城市**：用户指定则使用；未指定则询问
+- **股票**：用户指定则使用；未指定则询问
+- **时间**：默认当天
+
+### 2. 调用工具（固定顺序）
+1. **weather**：`{"city": "城市名称"}`
+2. **stock_quote**：`{"stock": "股票名称", "period": "daily"}`
+
+### 3. 生成简报
+格式如下：
+```
+【每日简报】
+日期：YYYY年M月D日
+
+一、天气概况
+城市/天气/温度/湿度/风速 + 出行建议
+
+二、股市行情
+股票/最新价格/涨跌幅 + 投资参考
+
+三、今日总结
+综合出行和投资建议
+```
+
+### 4. 兜底处理
+| 情况 | 处理 |
+|------|------|
+| 未指定城市/股票 | 主动询问 |
+| 工具调用失败 | 告知用户稍后重试 |
+| 股票不支持 | 提供支持列表 |
+
+## 工具参数
+| 工具 | 参数 | 说明 |
+|------|------|------|
+| weather | `{"city": "城市"}` | 查询实时天气 |
+| stock_quote | `{"stock": "股票", "period": "daily"}` | 查询日线行情，period 默认 daily |
+
+## 回答规范
+1. 结构清晰：含天气和股市两大部分
+2. 数据准确：必须来自工具返回，禁止编造
+3. 语言简洁：突出要点
+4. 提供建议：天气→出行建议；股票→投资参考
+5. 附带日期
+6. 股票部分附免责声明："以上股票分析基于历史数据，不构成投资建议。"
+7. 温度保留1位小数（°C）；涨跌幅保留2位小数（%）
+8. 未指定城市/股票时主动询问，不得随意选择
+9. 工具失败时如实告知并提供建议
+
+## 注意事项
+- 两个工具必须都调用，不可只调一个
+- 简报仅供参考，不构成投资或出行决策依据
+- 用户需更多详情时，建议使用专项技能
+- 保持客观中立，不做主观判断</div>
+        </div>
+    </div>
+
+    <div class="timestamp">报告由 skill_optimizer.py 自动生成 | 2026-08-05 18:59:09</div>
+</div>
+</body>
+</html>

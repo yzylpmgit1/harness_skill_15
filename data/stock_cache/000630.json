@@ -1,0 +1,43 @@
+{
+  "code": "000630",
+  "name": "铜陵有色",
+  "market": "SZ",
+  "industry": "有色金属",
+  "description": "铜陵有色（000630.SZ），数据来源：东方财富",
+  "years": [
+    {
+      "year": "2023",
+      "revenue_yi": 1374.54,
+      "net_profit_yi": 26.99,
+      "gross_margin": 7.26,
+      "net_margin": 1.96,
+      "roe": 6.83,
+      "debt_ratio": 49.52,
+      "revenue_yoy": 12.81,
+      "profit_yoy": -35.49
+    },
+    {
+      "year": "2024",
+      "revenue_yi": 1455.31,
+      "net_profit_yi": 28.09,
+      "gross_margin": 7.09,
+      "net_margin": 1.93,
+      "roe": 6.45,
+      "debt_ratio": 46.12,
+      "revenue_yoy": 5.88,
+      "profit_yoy": 4.07
+    },
+    {
+      "year": "2025",
+      "revenue_yi": 1727.26,
+      "net_profit_yi": 24.15,
+      "gross_margin": 7.86,
+      "net_margin": 1.4,
+      "roe": 5.19,
+      "debt_ratio": 53.6,
+      "revenue_yoy": 18.69,
+      "profit_yoy": -14.02
+    }
+  ],
+  "data_source": "东方财富实时获取"
+}

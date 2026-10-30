@@ -1,0 +1,110 @@
+[
+  {
+    "word": "serendipity",
+    "phonetic": "/ˌserənˈdɪpəti/",
+    "translation": "n. 意外发现珍奇事物的能力；机缘巧合",
+    "example": "Finding this old letter was pure serendipity.",
+    "example_translation": "找到这封旧信纯粹是机缘巧合。",
+    "difficulty": "hard",
+    "tags": ["名词", "高级"]
+  },
+  {
+    "word": "ephemeral",
+    "phonetic": "/ɪˈfemərəl/",
+    "translation": "adj. 短暂的；瞬息的",
+    "example": "The beauty of cherry blossoms is ephemeral.",
+    "example_translation": "樱花之美是短暂的。",
+    "difficulty": "hard",
+    "tags": ["形容词", "高级"]
+  },
+  {
+    "word": "resilient",
+    "phonetic": "/rɪˈzɪliənt/",
+    "translation": "adj. 有弹性的；能恢复的；适应力强的",
+    "example": "Children are often more resilient than adults.",
+    "example_translation": "孩子们通常比成年人更有适应力。",
+    "difficulty": "medium",
+    "tags": ["形容词", "常用"]
+  },
+  {
+    "word": "eloquent",
+    "phonetic": "/ˈeləkwənt/",
+    "translation": "adj. 雄辩的；有说服力的",
+    "example": "She gave an eloquent speech at the ceremony.",
+    "example_translation": "她在典礼上发表了雄辩的演讲。",
+    "difficulty": "medium",
+    "tags": ["形容词", "高级"]
+  },
+  {
+    "word": "ubiquitous",
+    "phonetic": "/juːˈbɪkwɪtəs/",
+    "translation": "adj. 无处不在的；普遍存在的",
+    "example": "Smartphones have become ubiquitous in modern life.",
+    "example_translation": "智能手机在现代生活中已无处不在。",
+    "difficulty": "hard",
+    "tags": ["形容词", "高级"]
+  },
+  {
+    "word": "meticulous",
+    "phonetic": "/məˈtɪkjələs/",
+    "translation": "adj. 一丝不苟的；极其仔细的",
+    "example": "He is meticulous about every detail of his work.",
+    "example_translation": "他对工作的每个细节都一丝不苟。",
+    "difficulty": "medium",
+    "tags": ["形容词", "高级"]
+  },
+  {
+    "word": "pragmatic",
+    "phonetic": "/præɡˈmætɪk/",
+    "translation": "adj. 务实的；实用主义的",
+    "example": "We need a pragmatic approach to solve this problem.",
+    "example_translation": "我们需要用务实的方法来解决这个问题。",
+    "difficulty": "medium",
+    "tags": ["形容词", "常用"]
+  },
+  {
+    "word": "nostalgia",
+    "phonetic": "/nɒˈstældʒə/",
+    "translation": "n. 怀旧；乡愁",
+    "example": "Listening to old songs filled him with nostalgia.",
+    "example_translation": "听老歌让他充满怀旧之情。",
+    "difficulty": "medium",
+    "tags": ["名词", "高级"]
+  },
+  {
+    "word": "ambiguous",
+    "phonetic": "/æmˈbɪɡjuəs/",
+    "translation": "adj. 模糊的；有歧义的",
+    "example": "His answer was deliberately ambiguous.",
+    "example_translation": "他的回答故意含糊其辞。",
+    "difficulty": "medium",
+    "tags": ["形容词", "常用"]
+  },
+  {
+    "word": "candor",
+    "phonetic": "/ˈkændər/",
+    "translation": "n. 坦率；直言不讳",
+    "example": "I appreciate your candor in this matter.",
+    "example_translation": "我欣赏你在这件事上的坦率。",
+    "difficulty": "hard",
+    "tags": ["名词", "高级"]
+  },
+  {
+    "word": "diligent",
+    "phonetic": "/ˈdɪlɪdʒənt/",
+    "translation": "adj. 勤奋的；用功的",
+    "example": "She is a diligent student who never misses a deadline.",
+    "example_translation": "她是个勤奋的学生，从不错过截止日期。",
+    "difficulty": "easy",
+    "tags": ["形容词", "常用"]
+  },
+  {
+    "word": "profound",
+    "phonetic": "/prəˈfaʊnd/",
+    "translation": "adj. 深刻的；深远的",
+    "example": "The book had a profound impact on my life.",
+    "example_translation": "这本书对我的人生有深远的影响。",
+    "difficulty": "medium",
+    "tags": ["形容词", "常用"]
+  }
+]

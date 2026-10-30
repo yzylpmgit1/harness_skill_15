@@ -1,0 +1,43 @@
+{
+  "code": "002594",
+  "name": "比亚迪",
+  "market": "SZ",
+  "industry": "汽车整车",
+  "description": "比亚迪（002594.SZ），数据来源：东方财富",
+  "years": [
+    {
+      "year": "2023",
+      "revenue_yi": 6023.15,
+      "net_profit_yi": 300.41,
+      "gross_margin": 18.58,
+      "net_margin": 4.99,
+      "roe": 19.97,
+      "debt_ratio": 77.86,
+      "revenue_yoy": 42.04,
+      "profit_yoy": 80.72
+    },
+    {
+      "year": "2024",
+      "revenue_yi": 7771.02,
+      "net_profit_yi": 402.54,
+      "gross_margin": 19.44,
+      "net_margin": 5.18,
+      "roe": 20.26,
+      "debt_ratio": 74.64,
+      "revenue_yoy": 29.02,
+      "profit_yoy": 34.0
+    },
+    {
+      "year": "2025",
+      "revenue_yi": 8039.65,
+      "net_profit_yi": 326.19,
+      "gross_margin": 17.74,
+      "net_margin": 4.06,
+      "roe": 12.62,
+      "debt_ratio": 70.74,
+      "revenue_yoy": 3.46,
+      "profit_yoy": -18.97
+    }
+  ],
+  "data_source": "东方财富实时获取"
+}

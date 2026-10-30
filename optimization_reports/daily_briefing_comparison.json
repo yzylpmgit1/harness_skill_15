@@ -1,0 +1,116 @@
+{
+  "skill_name": "daily_briefing",
+  "timestamp": "2026-08-05 18:59:09",
+  "optimization_time_seconds": 7.2,
+  "original_stats": {
+    "chars": 4821,
+    "chars_no_space": 4390,
+    "lines": 227,
+    "non_empty_lines": 151,
+    "sections": 24,
+    "code_blocks": 3,
+    "json_examples": 18,
+    "list_items": 8,
+    "tokens": 3828
+  },
+  "optimized_stats": {
+    "chars": 1198,
+    "chars_no_space": 1044,
+    "lines": 68,
+    "non_empty_lines": 55,
+    "sections": 10,
+    "code_blocks": 1,
+    "json_examples": 4,
+    "list_items": 7,
+    "tokens": 857
+  },
+  "comparison": {
+    "chars": {
+      "original": 4821,
+      "optimized": 1198,
+      "diff": 3623,
+      "reduction_pct": 75.2
+    },
+    "chars_no_space": {
+      "original": 4390,
+      "optimized": 1044,
+      "diff": 3346,
+      "reduction_pct": 76.2
+    },
+    "lines": {
+      "original": 227,
+      "optimized": 68,
+      "diff": 159,
+      "reduction_pct": 70.0
+    },
+    "non_empty_lines": {
+      "original": 151,
+      "optimized": 55,
+      "diff": 96,
+      "reduction_pct": 63.6
+    },
+    "sections": {
+      "original": 24,
+      "optimized": 10,
+      "diff": 14,
+      "reduction_pct": 58.3
+    },
+    "code_blocks": {
+      "original": 3,
+      "optimized": 1,
+      "diff": 2,
+      "reduction_pct": 66.7
+    },
+    "json_examples": {
+      "original": 18,
+      "optimized": 4,
+      "diff": 14,
+      "reduction_pct": 77.8
+    },
+    "list_items": {
+      "original": 8,
+      "optimized": 7,
+      "diff": 1,
+      "reduction_pct": 12.5
+    },
+    "tokens": {
+      "original": 3828,
+      "optimized": 857,
+      "diff": 2971,
+      "reduction_pct": 77.6
+    }
+  },
+  "key_info_checks": [
+    {
+      "item": "技能名称 (name)",
+      "original": "daily_briefing",
+      "optimized": "daily_briefing",
+      "passed": true
+    },
+    {
+      "item": "所需工具 (required_tools)",
+      "original": "weather, stock_quote",
+      "optimized": "weather, stock_quote",
+      "passed": true
+    },
+    {
+      "item": "stock 参数调用格式",
+      "original": "包含 6 个示例",
+      "optimized": "包含 2 个示例",
+      "passed": true
+    },
+    {
+      "item": "city 参数调用格式",
+      "original": "包含 6 个示例",
+      "optimized": "包含 2 个示例",
+      "passed": true
+    },
+    {
+      "item": "核心规则保留",
+      "original": "兜底处理, 免责声明, 投资参考, 出行建议",
+      "optimized": "兜底处理, 免责声明, 投资参考, 出行建议",
+      "passed": true,
+      "missing": ""
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "code": "000597",
+  "name": "东北制药",
+  "market": "SZ",
+  "industry": "医药制造",
+  "description": "东北制药（000597.SZ），数据来源：东方财富",
+  "years": [
+    {
+      "year": "2023",
+      "revenue_yi": 82.43,
+      "net_profit_yi": 3.58,
+      "gross_margin": 40.68,
+      "net_margin": 4.35,
+      "roe": 6.95,
+      "debt_ratio": 66.22,
+      "revenue_yoy": -6.42,
+      "profit_yoy": 2.34
+    },
+    {
+      "year": "2024",
+      "revenue_yi": 75.03,
+      "net_profit_yi": 4.1,
+      "gross_margin": 38.73,
+      "net_margin": 5.46,
+      "roe": 7.36,
+      "debt_ratio": 61.45,
+      "revenue_yoy": -8.98,
+      "profit_yoy": 14.34
+    },
+    {
+      "year": "2025",
+      "revenue_yi": 70.75,
+      "net_profit_yi": 2.6,
+      "gross_margin": 37.27,
+      "net_margin": 3.68,
+      "roe": 4.59,
+      "debt_ratio": 56.01,
+      "revenue_yoy": -5.7,
+      "profit_yoy": -36.54
+    }
+  ],
+  "data_source": "东方财富实时获取"
+}

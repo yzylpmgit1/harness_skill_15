@@ -1,0 +1,16 @@
+# ===== Harness 项目依赖 =====
+# 大模型 SDK（DeepSeek 与千问均兼容 OpenAI 接口格式，只需一个包）
+openai>=1.0.0
+
+# 向量检索
+faiss-cpu>=1.7.0
+numpy>=1.24.0
+
+# HTTP 请求（天气工具 + 股票数据获取）
+requests>=2.28.0
+
+# 环境变量管理
+python-dotenv>=1.0.0
+
+# Web 界面（Flask 后端）
+flask>=3.0.0

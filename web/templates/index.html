@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARNESS — AI Agent 控制台</title>
+    <link rel="stylesheet" href="/static/css/cyberpunk.css">
+</head>
+<body>
+
+    <!-- ==================== 顶部导航栏 ==================== -->
+    <header class="topbar">
+        <div class="topbar-brand">
+            <span class="brand-icon">◈</span>
+            <span class="brand-name">HARNESS</span>
+            <span class="brand-sub">AI Agent 控制台</span>
+        </div>
+        <div class="topbar-right">
+            <div class="status-pill">
+                <span class="status-dot online"></span>
+                <span>在线</span>
+            </div>
+            <div class="clock" id="clock">00:00:00</div>
+        </div>
+    </header>
+
+    <!-- ==================== 对话区域（始终展示） ==================== -->
+    <section class="chat-section">
+        <div class="chat-card">
+            <div class="chat-card-header">
+                <div class="chat-card-title">
+                    <span class="card-icon gradient-icon">💬</span>
+                    <h2>对话终端</h2>
+                    <span class="chat-tag">ReAct Agent</span>
+                </div>
+                <div class="chat-card-actions">
+                    <span class="memory-badge" id="chat-memory-badge">记忆: 0 条</span>
+                    <!-- 流式/非流式开关 -->
+                    <div class="stream-toggle" title="开启后 AI 回复将逐字显示（打字机效果）">
+                        <span class="stream-toggle-label">流式</span>
+                        <label class="switch">
+                            <input type="checkbox" id="stream-mode-toggle" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+                    <button class="btn-ghost-sm" onclick="clearChat()">清空对话</button>
+                </div>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <!-- 消息区：仅包含对话消息，独立滚动 -->
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-welcome">
+                        <div class="welcome-emoji">👋</div>
+                        <div class="welcome-text">
+                            <strong>HARNESS ReAct Agent 已就绪</strong>
+                            <p>输入问题开始对话，支持多轮上下文、工具调用与技能路由。</p>
+                            <div class="welcome-examples">
+                                <span class="example-chip">帮我找一首描写思乡的古诗</span>
+                                <span class="example-chip">北京今天天气怎么样</span>
+                                <span class="example-chip">帮我背单词</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 动态消息由 JS 直接 append 到这里 -->
+                </div>
+
+                <!-- 信息面板区：trace/dispatch 独立于消息流，可折叠不遮挡 -->
+                <div class="chat-info-panels" id="chat-info-panels">
+                    <!-- ReAct 推理过程（可折叠） -->
+                    <div class="react-trace-area collapsed" id="react-trace-area" style="display:none;">
+                        <div class="trace-header" onclick="toggleTrace()">
+                            <div class="trace-header-left">
+                                <span class="trace-chevron">▸</span>
+                                <span class="trace-icon">🧠</span>
+                                <span class="trace-label">ReAct 推理过程</span>
+                            </div>
+                            <span class="trace-step-count" id="trace-step-count">0 步</span>
+                        </div>
+                        <div class="trace-body" id="trace-body"></div>
+                    </div>
+
+                    <!-- SubAgent 分发流程图（可折叠） -->
+                    <div class="dispatch-panel collapsed" id="dispatch-panel" style="display:none;">
+                        <div class="dispatch-header" onclick="toggleDispatch()">
+                            <div class="dispatch-header-left">
+                                <span class="dispatch-chevron">▸</span>
+                                <span class="dispatch-icon">⚡</span>
+                                <span class="dispatch-label">SubAgent 分发流程</span>
+                            </div>
+                            <span class="dispatch-status" id="dispatch-status-text"></span>
+                        </div>
+                        <div class="dispatch-body" id="dispatch-body">
+                            <div class="dispatch-flow" id="dispatch-flow">
+                                <div class="flow-node flow-main-agent" id="flow-main-agent">
+                                    <div class="node-icon">🤖</div>
+                                    <div class="node-body">
+                                        <span class="node-title">Main Agent</span>
+                                        <span class="node-subtitle">ReactAgent</span>
+                                    </div>
+                                </div>
+                                <div class="flow-connector flow-line-down" id="flow-line-1"></div>
+                                <div class="flow-node flow-dispatcher" id="flow-dispatcher">
+                                    <div class="node-icon">⚡</div>
+                                    <div class="node-body">
+                                        <span class="node-title">DispatchManager</span>
+                                        <span class="node-subtitle" id="flow-dispatcher-info">等待分发...</span>
+                                    </div>
+                                </div>
+                                <div class="flow-connector flow-branch" id="flow-branch"></div>
+                                <div class="flow-subagents" id="flow-subagents"></div>
+                                <div class="flow-connector flow-merge" id="flow-merge"></div>
+                                <div class="flow-node flow-aggregation" id="flow-aggregation">
+                                    <div class="node-icon">📦</div>
+                                    <div class="node-body">
+                                        <span class="node-title">聚合结果</span>
+                                        <span class="node-subtitle" id="flow-aggregation-info">等待中...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 输入区：始终固定在底部 -->
+                <div class="chat-input-area">
+                    <div class="chat-input-wrapper">
+                        <textarea class="chat-input" id="chat-input" placeholder="输入消息... (Enter 发送, Shift+Enter 换行)" rows="1"></textarea>
+                        <button class="btn-gradient" id="chat-send-btn" onclick="sendMessage()">
+                            <span>发送</span>
+                            <span class="send-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 可折叠模块区 ==================== -->
+    <main class="modules-container">
+
+        <!-- ========== 声明性记忆模块（可折叠） ========== -->
+        <section class="module-section" id="memory-module">
+            <div class="module-header" onclick="toggleModule('memory-module')">
+                <div class="module-header-left">
+                    <span class="module-chevron">▾</span>
+                    <span class="module-icon icon-cyan">◆</span>
+                    <h2 class="module-title">声明性记忆</h2>
+                    <span class="module-sub">// MEMORY</span>
+                </div>
+                <div class="module-header-right">
+                    <span class="module-badge" id="memory-count">0 条</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <!-- 命令按钮区 -->
+                <div class="command-section">
+                    <h3 class="section-label">手动触发命令</h3>
+                    <div class="button-grid">
+                        <button class="action-card card-cyan" onclick="openRememberModal()">
+                            <span class="action-icon">＋</span>
+                            <span class="action-title">REMEMBER</span>
+                            <span class="action-desc">添加记忆</span>
+                        </button>
+                        <button class="action-card card-pink" onclick="openForgetModal()">
+                            <span class="action-icon">✕</span>
+                            <span class="action-title">FORGET</span>
+                            <span class="action-desc">删除记忆</span>
+                        </button>
+                        <button class="action-card card-yellow" onclick="triggerRefresh()">
+                            <span class="action-icon">↻</span>
+                            <span class="action-title">REFRESH</span>
+                            <span class="action-desc">提取偏好</span>
+                        </button>
+                        <button class="action-card card-green" onclick="loadMemoryPreview()">
+                            <span class="action-icon">▣</span>
+                            <span class="action-title">PREVIEW</span>
+                            <span class="action-desc">查看文件</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 进度条区域 -->
+                <div class="progress-area" id="memory-progress-area" style="display:none;">
+                    <div class="progress-header">
+                        <span class="progress-label" id="memory-progress-label">执行中...</span>
+                        <span class="progress-percent" id="memory-progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="memory-progress-bar" style="width:0%"></div>
+                    </div>
+                    <div class="progress-log" id="memory-progress-log"></div>
+                </div>
+
+                <!-- 结果提示 -->
+                <div class="result-toast" id="memory-toast" style="display:none;"></div>
+
+                <!-- memory.md 文件预览 -->
+                <div class="preview-section" id="memory-preview-section">
+                    <div class="preview-header">
+                        <h3 class="section-label">memory.md 预览</h3>
+                        <button class="btn-ghost-sm" onclick="loadMemoryPreview()">刷新</button>
+                    </div>
+                    <div class="preview-content" id="memory-preview">
+                        <span class="placeholder">点击 PREVIEW 按钮加载文件内容...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 技能模块（可折叠） ========== -->
+        <section class="module-section" id="skill-module">
+            <div class="module-header" onclick="toggleModule('skill-module')">
+                <div class="module-header-left">
+                    <span class="module-chevron">▾</span>
+                    <span class="module-icon icon-pink">◇</span>
+                    <h2 class="module-title">技能矩阵</h2>
+                    <span class="module-sub">// SKILLS</span>
+                </div>
+                <div class="module-header-right">
+                    <span class="module-badge" id="skill-count">0 个</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <!-- 技能列表 -->
+                <div class="skill-list" id="skill-list">
+                    <div class="loading-placeholder">
+                        <span class="loading-text">加载技能矩阵中...</span>
+                    </div>
+                </div>
+
+                <!-- 优化进度条（全局共用，因为同时只能优化一个技能） -->
+                <div class="progress-area" id="skill-progress-area" style="display:none;">
+                    <div class="progress-header">
+                        <span class="progress-label" id="skill-progress-label">优化中...</span>
+                        <span class="progress-percent" id="skill-progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar skill-bar" id="skill-progress-bar" style="width:0%"></div>
+                    </div>
+                    <div class="progress-log" id="skill-progress-log"></div>
+                </div>
+
+                <!-- 结果提示 -->
+                <div class="result-toast" id="skill-toast" style="display:none;"></div>
+
+                <!-- 技能列表（每个卡片自带结果展示区，不再使用公共底部区域） -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== 模态框：Remember ==================== -->
+    <div class="modal-overlay" id="remember-modal" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>添加记忆</h3>
+                <button class="modal-close" onclick="closeRememberModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">分类（留空则自动分类）</label>
+                    <select class="form-select" id="remember-category">
+                        <option value="">自动分类（LLM）</option>
+                        <option value="兴趣爱好">兴趣爱好</option>
+                        <option value="习惯偏好">习惯偏好</option>
+                        <option value="背景信息">背景信息</option>
+                        <option value="其他备注">其他备注</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">记忆内容</label>
+                    <textarea class="form-textarea" id="remember-content" placeholder="输入要记住的内容..." rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-gradient btn-sm" onclick="executeRemember()">确认添加</button>
+                <button class="btn-ghost btn-sm" onclick="closeRememberModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 模态框：Forget ==================== -->
+    <div class="modal-overlay" id="forget-modal" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>删除记忆</h3>
+                <button class="modal-close" onclick="closeForgetModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">关键词</label>
+                    <input type="text" class="form-input" id="forget-keyword" placeholder="输入关键词，包含该词的记忆将被删除">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-danger btn-sm" onclick="executeForget()">确认删除</button>
+                <button class="btn-ghost btn-sm" onclick="closeForgetModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 模态框：Refresh ==================== -->
+    <div class="modal-overlay" id="refresh-modal" style="display:none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>提取偏好</h3>
+                <button class="modal-close" onclick="closeRefreshModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">近期对话内容</label>
+                    <textarea class="form-textarea" id="refresh-conversation" placeholder="粘贴近期对话内容，LLM 将从中提取用户偏好..." rows="6"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-gradient btn-sm" onclick="executeRefresh()">开始提取</button>
+                <button class="btn-ghost btn-sm" onclick="closeRefreshModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

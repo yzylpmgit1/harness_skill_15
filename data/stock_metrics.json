@@ -1,0 +1,216 @@
+[
+  {
+    "code": "600519",
+    "name": "贵州茅台",
+    "market": "SH",
+    "industry": "白酒",
+    "description": "中国高端白酒龙头，主打飞天茅台，品牌护城河极深",
+    "years": [
+      {
+        "year": "2021",
+        "revenue_yi": 1094.64,
+        "net_profit_yi": 524.60,
+        "gross_margin": 91.54,
+        "net_margin": 52.47,
+        "roe": 29.90,
+        "debt_ratio": 22.81,
+        "revenue_yoy": 11.88,
+        "profit_yoy": 12.34
+      },
+      {
+        "year": "2022",
+        "revenue_yi": 1241.00,
+        "net_profit_yi": 627.16,
+        "gross_margin": 91.87,
+        "net_margin": 52.68,
+        "roe": 32.41,
+        "debt_ratio": 19.42,
+        "revenue_yoy": 16.87,
+        "profit_yoy": 19.55
+      },
+      {
+        "year": "2023",
+        "revenue_yi": 1476.94,
+        "net_profit_yi": 747.34,
+        "gross_margin": 91.96,
+        "net_margin": 52.49,
+        "roe": 36.18,
+        "debt_ratio": 17.98,
+        "revenue_yoy": 19.01,
+        "profit_yoy": 19.16
+      }
+    ],
+    "performance": {
+      "annualized_volatility": 8.37,
+      "annual_returns": {"2022": -15.76, "2023": -0.06, "2024": -11.70}
+    }
+  },
+  {
+    "code": "000858",
+    "name": "五粮液",
+    "market": "SZ",
+    "industry": "白酒",
+    "description": "中国第二大白酒企业，浓香型白酒代表，品牌价值仅次于茅台",
+    "years": [
+      {
+        "year": "2021",
+        "revenue_yi": 662.09,
+        "net_profit_yi": 233.77,
+        "gross_margin": 75.35,
+        "net_margin": 37.02,
+        "roe": 25.30,
+        "debt_ratio": 25.24,
+        "revenue_yoy": 15.51,
+        "profit_yoy": 17.15
+      },
+      {
+        "year": "2022",
+        "revenue_yi": 739.69,
+        "net_profit_yi": 266.91,
+        "gross_margin": 75.42,
+        "net_margin": 37.81,
+        "roe": 25.05,
+        "debt_ratio": 23.59,
+        "revenue_yoy": 11.72,
+        "profit_yoy": 14.17
+      },
+      {
+        "year": "2023",
+        "revenue_yi": 832.72,
+        "net_profit_yi": 302.11,
+        "gross_margin": 75.79,
+        "net_margin": 37.85,
+        "roe": 24.81,
+        "debt_ratio": 20.00,
+        "revenue_yoy": 12.58,
+        "profit_yoy": 13.19
+      }
+    ]
+  },
+  {
+    "code": "002415",
+    "name": "海康威视",
+    "market": "SZ",
+    "industry": "安防监控",
+    "description": "全球安防行业龙头，主营视频监控产品，向智能物联转型",
+    "years": [
+      {
+        "year": "2021",
+        "revenue_yi": 814.20,
+        "net_profit_yi": 168.00,
+        "gross_margin": 44.33,
+        "net_margin": 21.51,
+        "roe": 28.66,
+        "debt_ratio": 37.04,
+        "revenue_yoy": 28.21,
+        "profit_yoy": 25.51
+      },
+      {
+        "year": "2022",
+        "revenue_yi": 831.66,
+        "net_profit_yi": 128.37,
+        "gross_margin": 42.29,
+        "net_margin": 16.30,
+        "roe": 19.47,
+        "debt_ratio": 38.80,
+        "revenue_yoy": 2.14,
+        "profit_yoy": -23.59
+      },
+      {
+        "year": "2023",
+        "revenue_yi": 893.40,
+        "net_profit_yi": 141.08,
+        "gross_margin": 44.44,
+        "net_margin": 16.96,
+        "roe": 19.49,
+        "debt_ratio": 40.82,
+        "revenue_yoy": 7.42,
+        "profit_yoy": 9.89
+      }
+    ]
+  },
+  {
+    "code": "300750",
+    "name": "宁德时代",
+    "market": "SZ",
+    "industry": "新能源电池",
+    "description": "全球动力电池龙头，主营锂离子电池研发制造，受益于新能源车浪潮",
+    "years": [
+      {
+        "year": "2021",
+        "revenue_yi": 1303.56,
+        "net_profit_yi": 159.31,
+        "gross_margin": 26.28,
+        "net_margin": 13.70,
+        "roe": 21.42,
+        "debt_ratio": 69.90,
+        "revenue_yoy": 159.06,
+        "profit_yoy": 185.34
+      },
+      {
+        "year": "2022",
+        "revenue_yi": 3285.94,
+        "net_profit_yi": 307.29,
+        "gross_margin": 20.25,
+        "net_margin": 10.18,
+        "roe": 24.68,
+        "debt_ratio": 70.56,
+        "revenue_yoy": 152.07,
+        "profit_yoy": 92.89
+      },
+      {
+        "year": "2023",
+        "revenue_yi": 4009.17,
+        "net_profit_yi": 441.21,
+        "gross_margin": 22.91,
+        "net_margin": 11.66,
+        "roe": 24.36,
+        "debt_ratio": 69.34,
+        "revenue_yoy": 22.01,
+        "profit_yoy": 43.58
+      }
+    ]
+  },
+  {
+    "code": "601318",
+    "name": "中国平安",
+    "market": "SH",
+    "industry": "保险金融",
+    "description": "中国综合金融巨头，涵盖保险、银行、资管等业务，寿险改革进行中",
+    "years": [
+      {
+        "year": "2021",
+        "revenue_yi": 11804.00,
+        "net_profit_yi": 1016.18,
+        "gross_margin": null,
+        "net_margin": 10.32,
+        "roe": 12.90,
+        "debt_ratio": 89.37,
+        "revenue_yoy": -3.11,
+        "profit_yoy": -28.99
+      },
+      {
+        "year": "2022",
+        "revenue_yi": 11106.00,
+        "net_profit_yi": 837.74,
+        "gross_margin": null,
+        "net_margin": 9.67,
+        "roe": 10.03,
+        "debt_ratio": 89.45,
+        "revenue_yoy": -5.92,
+        "profit_yoy": -17.56
+      },
+      {
+        "year": "2023",
+        "revenue_yi": 9137.89,
+        "net_profit_yi": 856.65,
+        "gross_margin": null,
+        "net_margin": 11.96,
+        "roe": 9.75,
+        "debt_ratio": 89.39,
+        "revenue_yoy": -17.67,
+        "profit_yoy": -22.83
+      }
+    ]
+  }
+]
